@@ -34,6 +34,7 @@ Interstitial Ad
     }
     
 #usage
+###splash广告
 
     TencentAdSplash.addEventListener('splashAdSuccessPresentScreen', ()=>{
       console.log("---splashAdSuccessPresentScreen");
@@ -106,6 +107,7 @@ Interstitial Ad
     }
 
 #使用
+###splash广告
 
     TencentAdSplash.addEventListener('splashAdSuccessPresentScreen', ()=>{
       console.log("---splashAdSuccessPresentScreen");
@@ -128,7 +130,7 @@ Interstitial Ad
 
     TencentAdSplash.removeAllListeners();
     
-    //一下事件仅iOS可用
+    //以下事件仅iOS可用
     TencentAdSplash.addEventListener('splashAdApplicationWillEnterBackground', ()=>{
       console.log("---splashAdApplicationWillEnterBackground");
     });
