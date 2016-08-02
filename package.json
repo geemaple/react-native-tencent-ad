@@ -1,0 +1,12 @@
+{
+  "name": "react-native-tencent-ad",
+  "version": "0.1.0",
+  "description": "A react-native component for Tencent Social ads",
+  "author": "geemaple<geemaple@gmail.com>",
+  "main": "index.js",
+  "license": "BSD-2-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:geemaple/react-native-tencent-ad.git"
+  }
+}
