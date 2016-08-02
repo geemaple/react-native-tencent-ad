@@ -35,7 +35,7 @@ Interstitial Ad
     }
     
 #usage
-###splash广告
+###splash ad
 
     TencentAdSplash.addEventListener('splashAdSuccessPresentScreen', ()=>{
       console.log("---splashAdSuccessPresentScreen");
