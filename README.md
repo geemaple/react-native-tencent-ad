@@ -1,6 +1,9 @@
 # react-native-tencent-ad
 A react-native component for Tencent Social ads
 
+#TODO:
+Banner
+
 #Installation
     npm install react-native-tencent-ad -s
     rnpm link react-native-tencent-ad
@@ -16,7 +19,17 @@ A react-native component for Tencent Social ads
   According tot the doc:
 1. add the sdk under `$(react-project)/android/libs/` then import it to your project
 2. modify permission in AndroidManifest.xml
-3. MainActivity.java
+3. in MainActivity.java
+    //...
+    import com.mogoal.TencentAd.RNTencentAdPackage; // <--- This!
+    //...
+    @Override
+    protected List<ReactPackage> getPackages() {
+     return Arrays.<ReactPackage>asList(
+       new MainReactPackage(),
+       new RNTencentAdPackage() // <---- and This!
+     );
+    }
 
 ======
 #中文介绍:
@@ -41,3 +54,14 @@ A react-native component for Tencent Social ads
 根据文档:
 1. 添加SDK到目录 `$(react-project)/android/libs/`
 2. 在文件AndroidManifest.xml修改所需权限
+3. in MainActivity.java
+    //...
+    import com.mogoal.TencentAd.RNTencentAdPackage; // <--- This!
+    //...
+    @Override
+    protected List<ReactPackage> getPackages() {
+     return Arrays.<ReactPackage>asList(
+       new MainReactPackage(),
+       new RNTencentAdPackage() // <---- and This!
+     );
+    }
