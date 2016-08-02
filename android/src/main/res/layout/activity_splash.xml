@@ -9,18 +9,18 @@
 
     <!-- Logo区域，如果想展示全屏广告，可以不需要Logo区域 -->
     <!--<ImageView-->
-        <!--android:id="@+id/app_logo"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:contentDescription="@string/app_slogan"-->
-        <!--android:src="@drawable/app_logo" />-->
+    <!--android:id="@+id/app_logo"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_alignParentBottom="true"-->
+    <!--android:layout_centerHorizontal="true"-->
+    <!--android:contentDescription="@string/app_slogan"-->
+    <!--android:src="@drawable/app_logo" />-->
 
     <!-- 开屏广告容器，不得小于400dp -->
+    <!--android:layout_above="@id/app_logo"-->
     <FrameLayout
         android:id="@+id/splash_container"
-        android:layout_above="@id/app_logo"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
