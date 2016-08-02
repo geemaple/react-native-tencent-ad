@@ -1,0 +1,7 @@
+android/.idea
+npm-debug.log
+android.iml
+gradlew
+gradlew.bat
+local.properties
+android/gradle
