@@ -16,11 +16,11 @@ const removeEventListener = (type) => {
 }
 
 const removeAllListeners = () => {
-  removeListener('splashAdSuccessPresentScreen');
-  removeListener('splashAdFailToPresent');
-  removeListener('splashAdApplicationWillEnterBackground');
-  removeListener('splashAdClicked');
-  removeListener('splashAdClosed');
+  removeEventListener('splashAdSuccessPresentScreen');
+  removeEventListener('splashAdFailToPresent');
+  removeEventListener('splashAdApplicationWillEnterBackground');
+  removeEventListener('splashAdClicked');
+  removeEventListener('splashAdClosed');
 };
 
 export const TencentAdSplash = {

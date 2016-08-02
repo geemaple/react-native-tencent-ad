@@ -17,13 +17,13 @@ const removeEventListener = (type) => {
 }
 
 const removeAllListeners = () => {
-  removeListener('splashAdSuccessPresentScreen');
-  removeListener('splashAdFailToPresent');
-  removeListener('splashAdApplicationWillEnterBackground');
-  removeListener('splashAdClicked');
-  removeListener('splashAdClosed');
-  removeListener('splashAdWillPresentFullScreenModal');
-  removeListener('splashAdDidDismissFullScreenModal');
+  removeEventListener('splashAdSuccessPresentScreen');
+  removeEventListener('splashAdFailToPresent');
+  removeEventListener('splashAdApplicationWillEnterBackground');
+  removeEventListener('splashAdClicked');
+  removeEventListener('splashAdClosed');
+  removeEventListener('splashAdWillPresentFullScreenModal');
+  removeEventListener('splashAdDidDismissFullScreenModal');
 };
 
 export const TencentAdSplash = {
