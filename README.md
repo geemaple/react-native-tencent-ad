@@ -2,6 +2,7 @@
 A react-native component for Tencent Social ads
 
 #TODO:
+A better way to add logo view in splash ad
 Banner Ad<br/>
 Interstitial Ad
 
@@ -77,6 +78,11 @@ Interstitial Ad
 
 # react-native-tencent-ad
 广点通广告React-native封装
+
+#未完成:
+更好的方式添加splash底部logo view<br/>
+Banner 广告<br/>
+Interstitial 广告
 
 #安装方法
     npm install react-native-tencent-ad -s
