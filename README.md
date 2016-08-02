@@ -2,7 +2,7 @@
 A react-native component for Tencent Social ads
 
 #TODO:
-Banner Ad
+Banner Ad<br/>
 Interstitial Ad
 
 #Installation
@@ -22,16 +22,53 @@ Interstitial Ad
 2. modify permission in AndroidManifest.xml
 3. in MainApplication.java
 
-//...
-import com.mogoal.TencentAd.RNTencentAdPackage; // <--- This!
-//...
-@Override
-protected List<ReactPackage> getPackages() {
- return Arrays.<ReactPackage>asList(
-   new MainReactPackage(),
-   new RNTencentAdPackage() // <---- and This!
- );
-}
+    //...
+    import com.mogoal.TencentAd.RNTencentAdPackage; // <--- This!
+    //...
+    @Override
+    protected List<ReactPackage> getPackages() {
+     return Arrays.<ReactPackage>asList(
+       new MainReactPackage(),
+       new RNTencentAdPackage() // <---- and This!
+     );
+    }
+    
+#usage
+
+    TencentAdSplash.addEventListener('splashAdSuccessPresentScreen', ()=>{
+      console.log("---splashAdSuccessPresentScreen");
+    });
+
+    TencentAdSplash.addEventListener('splashAdClosed', ()=>{
+      console.log("---splashAdClosed");
+    });
+
+    TencentAdSplash.addEventListener('splashAdClicked', ()=>{
+      console.log("---splashAdClicked");
+    });
+
+    TencentAdSplash.addEventListener('splashAdFailToPresent', (error)=>{
+      console.log("---splashAdFailToPresent");
+      console.log(error);
+    });
+
+    TencentAdSplash.showSplash(adInfo.appKey, adInfo.placementID);
+
+    TencentAdSplash.removeAllListeners();
+    
+    //below events are iOS only
+    TencentAdSplash.addEventListener('splashAdApplicationWillEnterBackground', ()=>{
+      console.log("---splashAdApplicationWillEnterBackground");
+    });
+    
+    TencentAdSplash.addEventListener('splashAdWillPresentFullScreenModal', ()=>{
+      console.log("---splashAdWillPresentFullScreenModal");
+    });
+       
+    TencentAdSplash.addEventListener('splashAdDidDismissFullScreenModal', ()=>{
+      console.log("---splashAdDidDismissFullScreenModal");
+    });
+    
 ======
 #中文介绍:
 ======
@@ -57,13 +94,49 @@ protected List<ReactPackage> getPackages() {
 2. 在文件AndroidManifest.xml修改所需权限
 3. 在 MainApplication.java
 
-//...
-import com.mogoal.TencentAd.RNTencentAdPackage; // <--- 这里!
-//...
-@Override
-protected List<ReactPackage> getPackages() {
- return Arrays.<ReactPackage>asList(
-   new MainReactPackage(),
-   new RNTencentAdPackage() // <---- 这里!
- );
-}
+    //...
+    import com.mogoal.TencentAd.RNTencentAdPackage; // <--- 这里!
+    //...
+    @Override
+    protected List<ReactPackage> getPackages() {
+     return Arrays.<ReactPackage>asList(
+       new MainReactPackage(),
+       new RNTencentAdPackage() // <---- 这里!
+     );
+    }
+
+#使用
+
+    TencentAdSplash.addEventListener('splashAdSuccessPresentScreen', ()=>{
+      console.log("---splashAdSuccessPresentScreen");
+    });
+
+    TencentAdSplash.addEventListener('splashAdClosed', ()=>{
+      console.log("---splashAdClosed");
+    });
+
+    TencentAdSplash.addEventListener('splashAdClicked', ()=>{
+      console.log("---splashAdClicked");
+    });
+
+    TencentAdSplash.addEventListener('splashAdFailToPresent', (error)=>{
+      console.log("---splashAdFailToPresent");
+      console.log(error);
+    });
+
+    TencentAdSplash.showSplash(adInfo.appKey, adInfo.placementID);
+
+    TencentAdSplash.removeAllListeners();
+    
+    //一下事件仅iOS可用
+    TencentAdSplash.addEventListener('splashAdApplicationWillEnterBackground', ()=>{
+      console.log("---splashAdApplicationWillEnterBackground");
+    });
+    
+    TencentAdSplash.addEventListener('splashAdWillPresentFullScreenModal', ()=>{
+      console.log("---splashAdWillPresentFullScreenModal");
+    });
+       
+    TencentAdSplash.addEventListener('splashAdDidDismissFullScreenModal', ()=>{
+      console.log("---splashAdDidDismissFullScreenModal");
+    });
