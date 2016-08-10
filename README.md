@@ -2,7 +2,6 @@
 A react-native component for Tencent Social ads
 
 #TODO:
-A better way to add logo view in splash ad
 Banner Ad<br/>
 Interstitial Ad
 
@@ -19,9 +18,10 @@ Interstitial Ad
 
 ###[android](http://dev.e.qq.com/dev/#sdk):
   According tot the doc:
-1. add the sdk under `$(react-project)/android/libs/` then import it to your project
-2. modify permission in AndroidManifest.xml
-3. in MainApplication.java
+  1. add the sdk under `$(react-project)/android/libs/` then import it to your project
+  2. modify permission in AndroidManifest.xml
+  3. in MainApplication.java
+
 
     //...
     import com.mogoal.TencentAd.RNTencentAdPackage; // <--- This!
@@ -54,7 +54,9 @@ Interstitial Ad
       console.log(error);
     });
 
-    TencentAdSplash.showSplash(adInfo.appKey, adInfo.placementID);
+    TencentAdSplash.setTimeOut(3);
+    TencentAdSplash.setBackgroundColor(0xffffff);
+    TencentAdSplash.showSplash(adInfo.appKey, adInfo.placementID, null);
 
     TencentAdSplash.removeAllListeners();
     
@@ -80,7 +82,6 @@ Interstitial Ad
 广点通广告React-native封装
 
 #未完成:
-更好的方式添加splash底部logo view<br/>
 Banner 广告<br/>
 Interstitial 广告
 
@@ -97,9 +98,10 @@ Interstitial 广告
   
 ###[android](http://dev.e.qq.com/dev/#sdk):
 根据文档:
-1. 添加SDK到目录 `$(react-project)/android/libs/`
-2. 在文件AndroidManifest.xml修改所需权限
-3. 在 MainApplication.java
+  1. 添加SDK到目录 `$(react-project)/android/libs/`
+  2. 在文件AndroidManifest.xml修改所需权限
+  3. 在 MainApplication.java
+
 
     //...
     import com.mogoal.TencentAd.RNTencentAdPackage; // <--- 这里!
@@ -132,7 +134,9 @@ Interstitial 广告
       console.log(error);
     });
 
-    TencentAdSplash.showSplash(adInfo.appKey, adInfo.placementID);
+    TencentAdSplash.setTimeOut(3);
+    TencentAdSplash.setBackgroundColor(0xffffff);
+    TencentAdSplash.showSplash(adInfo.appKey, adInfo.placementID, null);
 
     TencentAdSplash.removeAllListeners();
     
