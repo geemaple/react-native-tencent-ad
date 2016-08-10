@@ -1,4 +1,4 @@
-rootProject.name = 'hackerview'
+rootProject.name = 'example'
 
 include ':app'
 include ':react-native-tencent-ad'

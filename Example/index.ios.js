@@ -9,49 +9,39 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View,
-  Platform
+  View
 } from 'react-native';
-
 import {TencentAdSplash} from 'react-native-tencent-ad'
 
-class hackerview extends Component {
+class example extends Component {
 
   componentWillMount(){
-    var adInfo = Platform.select({
-      ios: {
-        appKey: '1105367195',
-        placementID: '5090310220866168',
-      },
-      android: {
-        appKey: '1105367195',
-        placementID: '5090310220866168',
-      },
-    });
+      TencentAdSplash.addEventListener('splashAdSuccessPresentScreen', ()=>{
+        console.log("---splashAdSuccessPresentScreen");
+      });
 
-    TencentAdSplash.addEventListener('splashAdSuccessPresentScreen', ()=>{
-      console.log("---splashAdSuccessPresentScreen");
-    });
+      TencentAdSplash.addEventListener('splashAdClosed', ()=>{
+        console.log("---splashAdClosed");
+      });
 
-    TencentAdSplash.addEventListener('splashAdClosed', ()=>{
-      console.log("---splashAdClosed");
-    });
+      TencentAdSplash.addEventListener('splashAdClicked', ()=>{
+        console.log("---splashAdClicked");
+      });
 
-    TencentAdSplash.addEventListener('splashAdClicked', ()=>{
-      console.log("---splashAdClicked");
-    });
+      TencentAdSplash.addEventListener('splashAdFailToPresent', (error)=>{
+        console.log("---splashAdFailToPresent");
+        console.log(error);
+      });
 
-    TencentAdSplash.addEventListener('splashAdFailToPresent', (error)=>{
-      console.log("---splashAdFailToPresent");
-      console.log(error);
-    });
-
-    TencentAdSplash.showSplash(adInfo.appKey, adInfo.placementID);
-  }
+      TencentAdSplash.setTimeOut(3);
+      TencentAdSplash.setBackgroundColor(0xffffff);
+      TencentAdSplash.showSplash("1101508191", "9040714184494018", "SplashBottomView");
+    }
 
   componentWillUnmount(){
     TencentAdSplash.removeAllListeners();
   }
+
 
   render() {
     return (
@@ -90,4 +80,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('hackerview', () => hackerview);
+AppRegistry.registerComponent('example', () => example);

@@ -9,49 +9,36 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View,
-  Platform
+  View
 } from 'react-native';
-
 import {TencentAdSplash} from 'react-native-tencent-ad'
 
-class hackerview extends Component {
+class example extends Component {
 
   componentWillMount(){
-    var adInfo = Platform.select({
-      ios: {
-        appKey: '1105367195',
-        placementID: '5090310220866168',
-      },
-      android: {
-        appKey: '1105367195',
-        placementID: '5090310220866168',
-      },
-    });
+      TencentAdSplash.addEventListener('splashAdSuccessPresentScreen', ()=>{
+        console.log("---splashAdSuccessPresentScreen");
+      });
 
-    TencentAdSplash.addEventListener('splashAdSuccessPresentScreen', ()=>{
-      console.log("---splashAdSuccessPresentScreen");
-    });
+      TencentAdSplash.addEventListener('splashAdClosed', ()=>{
+        console.log("---splashAdClosed");
+      });
 
-    TencentAdSplash.addEventListener('splashAdClosed', ()=>{
-      console.log("---splashAdClosed");
-    });
+      TencentAdSplash.addEventListener('splashAdClicked', ()=>{
+        console.log("---splashAdClicked");
+      });
 
-    TencentAdSplash.addEventListener('splashAdClicked', ()=>{
-      console.log("---splashAdClicked");
-    });
+      TencentAdSplash.addEventListener('splashAdFailToPresent', (error)=>{
+        console.log("---splashAdFailToPresent");
+        console.log(error);
+      });
 
-    TencentAdSplash.addEventListener('splashAdFailToPresent', (error)=>{
-      console.log("---splashAdFailToPresent");
-      console.log(error);
-    });
+      TencentAdSplash.showSplash("1101152570", "8863364436303842593");
+    }
 
-    TencentAdSplash.showSplash(adInfo.appKey, adInfo.placementID);
-  }
-
-  componentWillUnmount(){
-    TencentAdSplash.removeAllListeners();
-  }
+    componentWillUnmount(){
+      TencentAdSplash.removeAllListeners();
+    }
 
   render() {
     return (
@@ -60,11 +47,11 @@ class hackerview extends Component {
           Welcome to React Native!
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.ios.js
+          To get started, edit index.android.js
         </Text>
         <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
+          Double tap R on your keyboard to reload,{'\n'}
+          Shake or press menu button for dev menu
         </Text>
       </View>
     );
@@ -90,4 +77,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('hackerview', () => hackerview);
+AppRegistry.registerComponent('example', () => example);
