@@ -33,7 +33,7 @@ class example extends Component {
         console.log(error);
       });
 
-      TencentAdSplash.showSplash("1101152570", "8863364436303842593");
+      TencentAdSplash.showSplash("1101152570", "8863364436303842593", null);
     }
 
     componentWillUnmount(){
