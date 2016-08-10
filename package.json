@@ -1,6 +1,6 @@
 {
   "name": "react-native-tencent-ad",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A react-native component for Tencent Social ads",
   "author": "geemaple<geemaple@gmail.com>",
   "main": "index.js",
