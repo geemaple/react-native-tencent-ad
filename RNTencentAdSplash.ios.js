@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 
 const RNTencentAdSplash = NativeModules.RNTencentAdSplash;
-const SplashEventEmitter = new NativeEventEmitter(NativeModules.RNTencentAdSplash)
+const SplashEventEmitter = new NativeEventEmitter(RNTencentAdSplash)
 
 const addEventListener = (type, handler) => {
   SplashEventEmitter.addListener(type, handler);

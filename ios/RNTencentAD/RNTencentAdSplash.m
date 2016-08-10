@@ -9,11 +9,10 @@
 #import "RNTencentAdSplash.h"
 #import "GDTSplashAd.h"
 #import "RCTLog.h"
-
 #define TENCENT_SPLASH_MIN_HEIGHT 360
 @interface RNTencentAdSplash()<GDTSplashAdDelegate>
 {
-    NSInteger _timeOut;
+    NSNumber *_timeOut;
     UIColor *_backGroundColor;
     
     GDTSplashAd *_splash;
@@ -25,10 +24,6 @@
 
 @implementation RNTencentAdSplash
 
-- (void)dealloc{
-    _splash.delegate = nil;
-}
-
 - (dispatch_queue_t)methodQueue
 {
     return dispatch_get_main_queue();
@@ -36,7 +31,7 @@
 
 RCT_EXPORT_MODULE();
 
-RCT_EXPORT_METHOD(setTimeOut:(NSInteger)timeout)
+RCT_EXPORT_METHOD(setTimeOut:(nonnull NSNumber *)timeout)
 {
     _timeOut = timeout;
 }
@@ -62,8 +57,8 @@ RCT_EXPORT_METHOD(showSplash:(NSString *)appKey placementID:(NSString *)placemen
     _splash.backgroundColor = _backGroundColor;
     
     UIWindow *fK = [[UIApplication sharedApplication] keyWindow];
-    if (_timeOut > 0) {
-        _splash.fetchDelay = _timeOut;
+    if (_timeOut) {
+        _splash.fetchDelay = [_timeOut integerValue];
     }
     
     Class logoViewClass = NSClassFromString(logoViewClassStr);
@@ -79,13 +74,16 @@ RCT_EXPORT_METHOD(showSplash:(NSString *)appKey placementID:(NSString *)placemen
     [_splash loadAdAndShowInWindow:fK withBottomView:_logoView];
 }
 
+
 //MARK: delegate
 - (void)startObserving{
     _observing = YES;
+    _splash.delegate = self;
 }
 
 - (void)stopObserving{
     _observing = NO;
+    _splash.delegate = nil;
 }
 
 - (NSArray<NSString *> *)supportedEvents{
@@ -141,5 +139,6 @@ RCT_EXPORT_METHOD(showSplash:(NSString *)appKey placementID:(NSString *)placemen
         [self sendEventWithName:@"splashAdDidDismissFullScreenModal" body:nil];
     }
 }
+
 
 @end
