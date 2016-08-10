@@ -1,4 +1,4 @@
-package com.example;
+package com.qq.e.union.demo;
 
 import android.app.Application;
 import android.util.Log;

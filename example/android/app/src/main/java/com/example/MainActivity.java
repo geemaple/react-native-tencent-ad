@@ -1,4 +1,4 @@
-package com.example;
+package com.qq.e.union.demo;
 
 import com.facebook.react.ReactActivity;
 
