@@ -9,6 +9,7 @@
 #import "RNTencentAdSplash.h"
 #import "GDTSplashAd.h"
 #import "RCTLog.h"
+#import "UIColor+Utils.h"
 #define TENCENT_SPLASH_MIN_HEIGHT 360
 @interface RNTencentAdSplash()<GDTSplashAdDelegate>
 {
@@ -36,9 +37,9 @@ RCT_EXPORT_METHOD(setTimeOut:(nonnull NSNumber *)timeout)
     _timeOut = timeout;
 }
 
-RCT_EXPORT_METHOD(setBackgroundColor:(UIColor *)backgroundColor)
+RCT_EXPORT_METHOD(setBackgroundColor:(NSString *)hexColor)
 {
-    _backGroundColor = backgroundColor;
+    _backGroundColor = [UIColor colorWithHexString:hexColor];
 }
 
 RCT_EXPORT_METHOD(showSplash:(NSString *)appKey placementID:(NSString *)placementID logoViewClassStr:(NSString *)logoViewClassStr)
@@ -54,7 +55,7 @@ RCT_EXPORT_METHOD(showSplash:(NSString *)appKey placementID:(NSString *)placemen
     
     _splash = [[GDTSplashAd alloc] initWithAppkey:appKey placementId:placementID];
     _splash.delegate = self;
-    _splash.backgroundColor = _backGroundColor;
+    _splash.backgroundColor = _backGroundColor ?: [UIColor whiteColor];
     
     UIWindow *fK = [[UIApplication sharedApplication] keyWindow];
     if (_timeOut) {

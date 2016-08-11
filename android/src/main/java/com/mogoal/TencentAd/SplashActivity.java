@@ -2,20 +2,25 @@ package com.mogoal.TencentAd;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.ColorInt;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.ViewGroup;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.qq.e.ads.splash.SplashAD;
 import com.qq.e.ads.splash.SplashADListener;
-
-import java.util.HashMap;
 
 public class SplashActivity extends Activity implements SplashADListener {
 
@@ -32,8 +37,10 @@ public class SplashActivity extends Activity implements SplashADListener {
         String appKey = intent.getStringExtra("appKey");
         String placementID = intent.getStringExtra("placementID");
         String hexColor = intent.getStringExtra("backgroundColor");
+        String resouce = intent.getStringExtra("resource");
         int timeout = intent.getIntExtra("timeout", 3000);
 
+        DisplayMetrics metrics = getResources().getDisplayMetrics();
         RelativeLayout r_layout = new RelativeLayout(this);
         @ColorInt int color = 0xFFFFFFFF;
         try{
@@ -44,15 +51,62 @@ public class SplashActivity extends Activity implements SplashADListener {
             r_layout.setBackgroundColor(color);
         }
 
-        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+        r_layout.setLayoutParams(new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT,
+                RelativeLayout.LayoutParams.MATCH_PARENT
+        ));
+
+        //Frame layout
+        FrameLayout f_layout = new FrameLayout(this);
+        f_layout.setId(View.generateViewId());
+        f_layout.setBackgroundColor(color);
+        f_layout.setMinimumHeight((int)(400 * metrics.density));
+        f_layout.setLayoutParams(new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT
+        ));
+
+        View logoView = null;
+
+        if (resouce != null){
+
+            String[] sub_resouce = resouce.split(":");
+
+            if (sub_resouce.length == 3){
+                try
+                {
+                    PackageManager manager = getPackageManager();
+                    Resources resources = manager.getResourcesForApplication(sub_resouce[0]);
+                    int resId = resources.getIdentifier(sub_resouce[2], sub_resouce[1], sub_resouce[0]);
+                    LayoutInflater inflater = LayoutInflater.from(this);
+                    logoView = inflater.inflate(resId, r_layout, false);
+                    logoView.setId(View.generateViewId());
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        RelativeLayout.LayoutParams f_layout_param = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.MATCH_PARENT,
                 RelativeLayout.LayoutParams.MATCH_PARENT
         );
 
+        if (logoView != null){
+            f_layout_param.addRule(RelativeLayout.ABOVE, logoView.getId());
+        }
 
-        setContentView(r_layout, params);
+        r_layout.addView(f_layout, f_layout_param);
 
-        splashAD = new SplashAD(this, r_layout, appKey, placementID, this, timeout);
+        if (logoView != null){
+            r_layout.addView(logoView);
+        }
+
+        setContentView(r_layout);
+
+        splashAD = new SplashAD(this, f_layout, appKey, placementID, this, timeout);
     }
 
     @Override

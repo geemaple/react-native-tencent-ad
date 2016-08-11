@@ -34,8 +34,8 @@ class example extends Component {
       });
 
       TencentAdSplash.setTimeOut(5);
-      TencentAdSplash.setBackgroundColor("#0000FF");
-      TencentAdSplash.showSplash("1101152570", "8863364436303842593", null);
+      TencentAdSplash.setBackgroundColor("#FF0000");
+      TencentAdSplash.showSplash("1101152570", "8863364436303842593", "com.qq.e.union.demo:layout:splash_bottom");
     }
 
     componentWillUnmount(){
