@@ -33,6 +33,8 @@ class example extends Component {
         console.log(error);
       });
 
+      TencentAdSplash.setTimeOut(5);
+      TencentAdSplash.setBackgroundColor("#0000FF");
       TencentAdSplash.showSplash("1101152570", "8863364436303842593", null);
     }
 

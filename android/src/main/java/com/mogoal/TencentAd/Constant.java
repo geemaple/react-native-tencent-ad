@@ -7,5 +7,6 @@ import com.facebook.react.bridge.ReactApplicationContext;
  */
 
 public class Constant{
-    public static ReactApplicationContext context = null;
+    protected static ReactApplicationContext context = null;
+    protected static final String ReactApplicationLogTag = "RNTencentAd";
 }

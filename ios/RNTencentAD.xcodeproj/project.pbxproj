@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0566EF801D5C338C00FDEEBE /* UIColor+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 0566EF7F1D5C338C00FDEEBE /* UIColor+Utils.m */; };
 		05FCBBFF1D4335770086FE88 /* RNTencentAdSplash.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FCBBFE1D4335770086FE88 /* RNTencentAdSplash.m */; };
 /* End PBXBuildFile section */
 
@@ -24,6 +25,8 @@
 
 /* Begin PBXFileReference section */
 		052EAE5A1D0EC07300D127EA /* libRNTencentAD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNTencentAD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0566EF7E1D5C338C00FDEEBE /* UIColor+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Utils.h"; sourceTree = "<group>"; };
+		0566EF7F1D5C338C00FDEEBE /* UIColor+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Utils.m"; sourceTree = "<group>"; };
 		05FCBBFD1D4335770086FE88 /* RNTencentAdSplash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNTencentAdSplash.h; sourceTree = "<group>"; };
 		05FCBBFE1D4335770086FE88 /* RNTencentAdSplash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNTencentAdSplash.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,6 +63,8 @@
 			children = (
 				05FCBBFD1D4335770086FE88 /* RNTencentAdSplash.h */,
 				05FCBBFE1D4335770086FE88 /* RNTencentAdSplash.m */,
+				0566EF7E1D5C338C00FDEEBE /* UIColor+Utils.h */,
+				0566EF7F1D5C338C00FDEEBE /* UIColor+Utils.m */,
 			);
 			path = RNTencentAD;
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				05FCBBFF1D4335770086FE88 /* RNTencentAdSplash.m in Sources */,
+				0566EF801D5C338C00FDEEBE /* UIColor+Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +170,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -202,7 +208,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

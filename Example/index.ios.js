@@ -34,7 +34,7 @@ class example extends Component {
       });
 
       TencentAdSplash.setTimeOut(3);
-      TencentAdSplash.setBackgroundColor(0xffffff);
+      TencentAdSplash.setBackgroundColor("#FFFF0000");
       TencentAdSplash.showSplash("1101508191", "9040714184494018", "SplashBottomView");
     }
 
