@@ -55,7 +55,7 @@ Interstitial Ad
     });
 
     TencentAdSplash.setTimeOut(3);
-    TencentAdSplash.setBackgroundColor(0xffffff);
+    TencentAdSplash.setBackgroundColor("#FFFF0000"); //rrggbb or AArrggbb
     TencentAdSplash.showSplash(adInfo.appKey, adInfo.placementID, null);
 
     TencentAdSplash.removeAllListeners();
@@ -135,7 +135,7 @@ Interstitial 广告
     });
 
     TencentAdSplash.setTimeOut(3);
-    TencentAdSplash.setBackgroundColor(0xffffff);
+    TencentAdSplash.setBackgroundColor("#FFFF0000"); //rrggbb or AArrggbb
     TencentAdSplash.showSplash(adInfo.appKey, adInfo.placementID, null);
 
     TencentAdSplash.removeAllListeners();
