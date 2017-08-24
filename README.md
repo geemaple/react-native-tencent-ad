@@ -1,3 +1,6 @@
+⚠️⚠️⚠️this project has be deprecated
+⚠️⚠️⚠️项目不再维护
+
 # react-native-tencent-ad
 A react-native component for Tencent Social ads
 
